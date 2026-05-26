@@ -1539,6 +1539,17 @@ input, select, textarea { font-family: inherit; }
 @media (max-width: 1024px) {
   .results-section { display: none; }
 
+  .section-header {
+    text-align: center;
+  }
+  .section-header .eyebrow {
+    justify-content: center;
+  }
+  .section-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
