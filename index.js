@@ -419,7 +419,14 @@ function showToast(message, icon = '') {
 // =========================================================================
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
-    const target = document.querySelector(link.getAttribute('href'));
+    let targetSelector = link.getAttribute('href');
+    
+    // Redirect #results anchor links to #home on mobile and tablet viewports
+    if (targetSelector === '#results' && window.innerWidth <= 1024) {
+      targetSelector = '#home';
+    }
+
+    const target = document.querySelector(targetSelector);
     if (!target) return;
     e.preventDefault();
     const headerH = siteHeader ? siteHeader.offsetHeight : 80;
