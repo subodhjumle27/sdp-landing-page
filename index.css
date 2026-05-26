@@ -532,8 +532,8 @@ input, select, textarea { font-family: inherit; }
 /* Result tag overlay */
 .result-tag {
   position: absolute;
-  top: 20px;
-  right: -24px;
+  bottom: 40px;
+  left: 24px;
   background: rgba(17,17,17,0.92);
   backdrop-filter: blur(12px);
   border: 1px solid var(--c-border-light);
@@ -1549,7 +1549,7 @@ input, select, textarea { font-family: inherit; }
   .hero-actions { justify-content: center; }
   .trust-row { justify-content: center; }
 
-  .result-tag { right: -10px; }
+  .result-tag { left: 16px; bottom: 36px; right: auto; }
 
   .about-grid {
     grid-template-columns: 1fr;
@@ -1612,6 +1612,16 @@ input, select, textarea { font-family: inherit; }
   .featured-testimonial { grid-column: span 1; }
 
   .gallery-card { width: 280px; }
+
+  .result-tag {
+    left: 12px;
+    bottom: 36px;
+    padding: 8px 12px;
+    min-width: auto;
+    gap: 8px;
+  }
+  .result-tag .result-icon { font-size: 16px; }
+  .result-tag .result-value { font-size: 13px; }
 
   .form-row { grid-template-columns: 1fr; }
   .stat-card { flex: 1 1 100%; min-width: 0; }
