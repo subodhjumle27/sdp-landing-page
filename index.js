@@ -139,6 +139,32 @@ const photoStack = document.getElementById('photo-stack');
 if (photoStack) {
   photoStack.addEventListener('mouseenter', stopSlideshow);
   photoStack.addEventListener('mouseleave', startSlideshow);
+
+  // Swipe support for mobile devices
+  let swipeStartX = 0;
+  let swipeEndX = 0;
+
+  photoStack.addEventListener('touchstart', (e) => {
+    swipeStartX = e.changedTouches[0].clientX;
+    stopSlideshow();
+  }, { passive: true });
+
+  photoStack.addEventListener('touchend', (e) => {
+    swipeEndX = e.changedTouches[0].clientX;
+    const diffX = swipeEndX - swipeStartX;
+    const threshold = 40; // minimum drag distance in pixels
+
+    if (Math.abs(diffX) > threshold) {
+      if (diffX < 0) {
+        // Swiped left -> Next slide
+        goToSlide(currentSlide + 1);
+      } else {
+        // Swiped right -> Previous slide
+        goToSlide(currentSlide - 1);
+      }
+    }
+    startSlideshow();
+  }, { passive: true });
 }
 
 startSlideshow();
